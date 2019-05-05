@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.knowworld.backapp.model.mapper.SDictItemMapper">
+    <resultMap type="com.knowworld.backapp.model.domain.SDictItem" id="sDictItem">
+        <result column="dict_item_id" property="dictItemId"/>
+        <result column="dict_id" property="dictId"/>
+        <result column="item_code" property="dictItemCode"/>
+        <result column="item_name" property="itemName"/>
+        <result column="order_num" property="orderNum"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+</mapper>
