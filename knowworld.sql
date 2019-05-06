@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50561
 File Encoding         : 65001
 
-Date: 2019-05-05 23:04:42
+Date: 2019-05-07 00:24:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,20 +27,21 @@ CREATE TABLE `kw_article` (
   `source` tinyint(10) DEFAULT NULL,
   `low_source` bigint(20) DEFAULT NULL COMMENT '预览图',
   `content` longtext NOT NULL,
-  `cre_id` bigint(25) NOT NULL,
-  `cre_name` varchar(255) NOT NULL,
-  `oper_id` bigint(10) NOT NULL,
-  `oper_name` varchar(255) NOT NULL,
-  `cre_time` datetime NOT NULL,
-  `oper_time` datetime NOT NULL,
-  `status` tinyint(10) NOT NULL,
-  `valid_flag` tinyint(10) NOT NULL,
+  `cre_id` bigint(25) DEFAULT NULL,
+  `cre_name` varchar(255) DEFAULT NULL,
+  `oper_id` bigint(10) DEFAULT NULL,
+  `oper_name` varchar(255) DEFAULT NULL,
+  `cre_time` datetime DEFAULT NULL,
+  `oper_time` datetime DEFAULT NULL,
+  `status` tinyint(10) DEFAULT NULL,
+  `valid_flag` tinyint(10) DEFAULT NULL,
   PRIMARY KEY (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of kw_article
 -- ----------------------------
+INSERT INTO `kw_article` VALUES ('1', '出道一年的蔡徐坤，凭啥能圈这么多的粉？？', '他是偶像是爱豆也更是一位歌手，18年对于他来说是并不平凡的一年', '2', '1', null, '<p>\r\n	<strong><span style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">前段时间在《青春有你》的决赛现场，出道一周年的NPC也前来助阵，勾起了不少追星小姐妹去年疯狂搞《偶练》的回忆，那阵仗、那场面、那架势至今都历历在目。</span></strong>\r\n</p>\r\n<p>\r\n	<strong><span style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\"></span></strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>可真是一把心酸泪，瞬间涌上心头。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>尤其当时C位出道的蔡徐坤，南风可是一路看着他成长起来的，因为海外进行个人公演的行程所以那天未能出席，虽然有点儿小遗憾但由衷地为他感到开心。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>出道一年就能在海外开巡演的，掰着指头数数圈里也没几个，而且还是连续的好几场，可真是厉害了这个小老弟，但随之出现了些质疑和不认可的声音。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>这些实属正常，毕竟人红是非多。蔡徐坤到底有多火？关注娱乐圈的应该都有所了解，从出道到现在整整一年时间，他简直是以光的速度在成长，而且以他优越的外在形象，真的圈了不少小迷妹。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>大家有目共睹，南风不吹不黑。关于这些外界各种质疑声，蔡徐坤自己从来没有理会过，而是不断地用自己的音乐来回击。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>可以但没必要。（小伙子很cool奥！）</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>说实话，对于这种选秀出身的爱豆们，南风一开始是不太好看的，不单独针对蔡徐坤我是说所有的，红得快糊得也快，参考十几年前那些选秀出来的，能走到今天的其实没几个。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>但照目前的架势来看，蔡徐坤的路还算比较稳。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>颜值在线，唱跳俱佳。从《向上吧！少年》到《星动亚洲》再到《偶像练习生》，一跃成为顶流的蔡徐坤，人气飙升之后带来的话题讨论度，自然也是居高不下的。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>被无数次肯定过，也被无数次否定过。流量是把双刃剑，在带给他更多明星光环的同时，也意味着会被更多的人监督。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>他是偶像是爱豆也更是一位歌手，18年对于他来说是并不平凡的一年，从《偶练》的舞台出道之后，他并没有急着去其他的综艺节目上狂刷存在感，而是更加专注自己喜欢的音乐领域。</strong>\r\n</p>\r\n<strong>发EP、做专辑、当制作人、自己作词作曲，他全程参与的首支《pull&nbsp;&nbsp;up》MV上线，打破音乐V榜、总榜以及内地榜七项数据的最高记录，平台七个MV相关榜单的最高纪录全部由蔡徐坤保持！</strong>\r\n<p>\r\n	<strong><span style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\"></span></strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>厉害了，这个哥。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>甚至出道刚一年就能带着团队出国去巡演，化身DJ亲自打碟，无论实力还是资源，都是同龄人无法相提并论的。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>选择音乐这条路，本来就不太好走，但知道自己想要什么并为之而努力的这种感觉，应该还挺cool的吧！娱乐圈活得清醒的人不太多，蔡徐坤应该能算一个。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>虽然在很多人眼里，他不过是个刚刚二十出头的小屁孩儿，但在音乐这条路上他已经坚持了许多年。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>就像蔡徐坤之前在Levi\'s&reg;“无禁音乐人”视频里说的那样，音乐几乎陪伴了他整个童年，长大之后又学习编曲学习作词作曲。从歌手到producer再到DJ，在不同的音乐人身份之间转换，不变的是他对音乐的坚持。</strong>\r\n</p>\r\n<p style=\"color:#464646;font-family:&quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, SimSun;font-size:14px;background-color:#BCD3E5;\">\r\n	<strong>拿了不少奖也获得了不少荣誉，但作为一名90后代表，年轻人不应该仅仅局限于此。他的酷不仅仅在于外表，更体现在他对音乐的追求。</strong>\r\n</p>\r\n<div>\r\n	<strong><br />\r\n</strong>\r\n</div>\r\n<strong></strong><br />', null, null, null, null, '2019-05-07 00:02:15', '2019-05-07 00:16:10', '1', '1');
 
 -- ----------------------------
 -- Table structure for kw_attachment
@@ -85,7 +86,7 @@ CREATE TABLE `kw_member` (
   `avatar` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_3w4x463xehrckku45kvs911ml` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of kw_member
@@ -101,10 +102,10 @@ CREATE TABLE `kw_member_role` (
   `role_id` bigint(20) NOT NULL,
   KEY `FKb17jj8ou6rp2lkxb5xen5tixe` (`role_id`),
   KEY `FK76a8mc5mub4tu1gndxph4ypls` (`member_id`),
-  CONSTRAINT `FKqotkax6ppug3frgkwdimkpfli` FOREIGN KEY (`member_id`) REFERENCES `kw_member` (`id`),
   CONSTRAINT `FK76a8mc5mub4tu1gndxph4ypls` FOREIGN KEY (`member_id`) REFERENCES `kw_member` (`id`),
   CONSTRAINT `FKb17jj8ou6rp2lkxb5xen5tixe` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`),
-  CONSTRAINT `FKouuby7915oegudjmka5u9p89e` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`)
+  CONSTRAINT `FKouuby7915oegudjmka5u9p89e` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`),
+  CONSTRAINT `FKqotkax6ppug3frgkwdimkpfli` FOREIGN KEY (`member_id`) REFERENCES `kw_member` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -176,7 +177,7 @@ CREATE TABLE `kw_role` (
   `status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_r0jsnwb00o0n376ghyuahuqfg` (`role_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of kw_role
@@ -193,8 +194,8 @@ CREATE TABLE `kw_role_resource` (
   `resource_id` bigint(20) NOT NULL,
   KEY `FKjwyt61kixx52wper9y0li38c2` (`resource_id`),
   KEY `FKasi3s87a7p562cyw0jt3m0isf` (`role_id`),
-  CONSTRAINT `FK7vjv7sf00ujmpml30nk626e1i` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`),
   CONSTRAINT `FK43af0674pi0asmo8c57741k2y` FOREIGN KEY (`resource_id`) REFERENCES `kw_resource` (`id`),
+  CONSTRAINT `FK7vjv7sf00ujmpml30nk626e1i` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`),
   CONSTRAINT `FKasi3s87a7p562cyw0jt3m0isf` FOREIGN KEY (`role_id`) REFERENCES `kw_role` (`id`),
   CONSTRAINT `FKjwyt61kixx52wper9y0li38c2` FOREIGN KEY (`resource_id`) REFERENCES `kw_resource` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -228,13 +229,14 @@ CREATE TABLE `s_dict` (
   `order_num` int(10) DEFAULT NULL COMMENT '排序号',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of s_dict
 -- ----------------------------
 INSERT INTO `s_dict` VALUES ('5', 'GENDER', '性别', '1', '');
 INSERT INTO `s_dict` VALUES ('6', 'ARTICLE_TYPE', '文章类型', '2', '1数码产品');
+INSERT INTO `s_dict` VALUES ('7', 'ISSUE_STATUS', '发布状态', '3', '');
 
 -- ----------------------------
 -- Table structure for s_dict_item
@@ -248,7 +250,7 @@ CREATE TABLE `s_dict_item` (
   `order_num` int(10) DEFAULT NULL COMMENT '排序号',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of s_dict_item
@@ -256,3 +258,6 @@ CREATE TABLE `s_dict_item` (
 INSERT INTO `s_dict_item` VALUES ('3', '5', '1', '男', '1', '');
 INSERT INTO `s_dict_item` VALUES ('4', '5', '2', '女', '2', '');
 INSERT INTO `s_dict_item` VALUES ('5', '6', '1', '数码产品', '1', '');
+INSERT INTO `s_dict_item` VALUES ('6', '6', '2', '娱乐八卦', '2', '');
+INSERT INTO `s_dict_item` VALUES ('7', '7', '1', '未发布', '1', '');
+INSERT INTO `s_dict_item` VALUES ('8', '7', '2', '已发布', '2', '');
