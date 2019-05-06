@@ -10,11 +10,11 @@
   <div class="field">
     <input class="easyui-textbox" name="summary" style="width:100%" data-options="label:'摘要：',required:true">
   </div>
-  <div class="field">
+  <#--<div class="field">
     <input class="easyui-textbox" name="lowSource" style="width:100%" data-options="label:'预览图：',required:true">
-  </div>
+  </div>-->
   <div class="field">
-    <textarea id="content" name="content" style="width:700px;height:300px;">
+    <textarea id="content" name="content" style="width:100%;height:400px;">
     &lt;strong&gt;请输入内容&lt;/strong&gt;
     </textarea>
   </div>
@@ -51,8 +51,12 @@
                 }
             },
             afterBlur : function(){this.sync();},
-            items : ['source','|','preview','|','wordpaste','|',
+            /*items : ['source','|','preview','|','wordpaste','|',
                     'image','media','|','hr','|','link','unlink','|','fullscreen','|','lineheight','|','anchor','/',
+                'justifyleft','justifycenter','justifyright','justifyfull','|',
+                'insertorderedlist','|','indent','outdent','|','fontname','fontsize','forecolor','hilitecolor','bold','italic','underline','strikethrough']*/
+            items : ['source','|','preview','|','wordpaste','|',
+                '|','hr','|','link','unlink','|','fullscreen','|','lineheight','|','anchor','/',
                 'justifyleft','justifycenter','justifyright','justifyfull','|',
                 'insertorderedlist','|','indent','outdent','|','fontname','fontsize','forecolor','hilitecolor','bold','italic','underline','strikethrough']
         },
@@ -67,6 +71,15 @@
     $(function(){
         //创建富文本编辑器
         itemAddEditor = TAOTAO.createEditor("#article-form [name=content]",TT.kingEditorParams);
+        <#if article??>
+            $(function () {
+                //需要延迟一点执行，等待页面所有组件都初始化好，再执行数据初始化
+                setTimeout(function () {
+                    var article = ${article};
+                    KE.html(article.content);
+                }, 200);
+            });
+        </#if>
     });
     //提交表单
     function submitForm(){

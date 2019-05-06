@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/kw/article")
@@ -74,6 +75,10 @@ public class KwArticleController {
                 return new AjaxResult(false,"内容不存在！");
             }
         }
+        article.setValidFlag(1);
+        article.setStatus(1);
+        article.setCreTime(new Date());
+        article.setOperTime(new Date());
         return articleDao.save(article);
     }
 
@@ -82,7 +87,10 @@ public class KwArticleController {
     @ResponseBody
     public AjaxResult delete(Long articleId){
         try{
-            articleDao.delete(articleId);
+            KwArticle article = articleDao.findOne(articleId);
+            article.setValidFlag(2);
+            article.setOperTime(new Date());
+            articleDao.save(article);
         }catch (Exception e){
             return new AjaxResult().setMessage(e.getMessage());
         }

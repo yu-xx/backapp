@@ -56,17 +56,14 @@ public class KwArticle {
     /**
      * 创建人ID
      */
-    @Column(nullable = false)
     private Long creId;
     /**
      * 创建人名称
      */
-    @Column(nullable = false)
     private String creName;
     /**
      * 创建时间
      */
-    @Column(nullable = false)
     private Date creTime;
     /**
      * 操作人ID

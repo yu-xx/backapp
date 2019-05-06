@@ -44,7 +44,20 @@ define(function () {
           formatter: function (val) {
               return filterXSS(val);
           }
-      }, {
+      },{
+              field: 'statusName',
+              title: '发布状态',
+              width: 20,
+              editor: {
+                  type: 'validatebox',
+                  options: {
+                      required: true
+                  }
+              },
+              formatter: function (val) {
+                  return filterXSS(val);
+              }
+          }, {
         field: 'operTime',
         title: '操作时间',
         width: 30,
@@ -57,20 +70,7 @@ define(function () {
         formatter: function (val) {
           return filterXSS(val);
         }
-      }, {
-              field: 'operName',
-              title: '操作人',
-              width: 30,
-              editor: {
-                  type: 'validatebox',
-                  options: {
-                      required: true,
-                  }
-              },
-              formatter: function (val) {
-                  return filterXSS(val);
-              }
-          },
+      },
           {
           field: 'test',
           title: '操作',

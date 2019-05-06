@@ -39,7 +39,8 @@ public class KwArticleService {
         PageRequest pr = new PageRequest(page - 1, rows);
         Page pageData = articleDao.findAll(new MySpecification<KwArticle>().and(
                 MySpecification.Cnd.eq("type", type),
-                MySpecification.Cnd.like("title", title)
+                MySpecification.Cnd.like("title", title),
+                MySpecification.Cnd.eq("validFlag",1)
         ).desc("operTime"), pr);
         return this.transKwArticle(new DataGrid<KwArticle>(pageData));
     }
@@ -47,11 +48,13 @@ public class KwArticleService {
     private DataGrid<ArticlePageDto> transKwArticle(DataGrid<KwArticle> articleDataGrid){
         List<ArticlePageDto> dtoList = new ArrayList<>();
         Map<Integer, String> typeDictMap = dictItemService.getDictItemMap(DictConstants.ARTICLE_TYPE);
+        Map<Integer, String> statusDictMap = dictItemService.getDictItemMap(DictConstants.ISSUE_STATUS);
         for (KwArticle article : articleDataGrid.getRows()) {
             ArticlePageDto dto = new ArticlePageDto();
             dtoList.add(dto);
             BeanUtils.copyProperties(article,dto);
             dto.setTypeName(typeDictMap.get(article.getType()));
+            dto.setStatusName(statusDictMap.get(article.getStatus()));
         }
         return new DataGrid<>(dtoList);
     }
