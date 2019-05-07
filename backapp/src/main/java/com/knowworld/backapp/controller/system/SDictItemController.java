@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.knowworld.backapp.common.AjaxResult;
 import com.knowworld.backapp.common.DataGrid;
+import com.knowworld.backapp.common.DictConstants;
 import com.knowworld.backapp.common.MySpecification;
 import com.knowworld.backapp.dto.DictItemPageDto;
 import com.knowworld.backapp.model.dao.SDictDao;
@@ -99,4 +100,17 @@ public class SDictItemController {
     public Iterable<SDictItem> list(String dictCode){
         return dictItemService.getDictItemList(dictCode);
     }
+
+    @RequestMapping("/articletype/list")
+    @ResponseBody
+    public Iterable<SDictItem> listTypes(){
+        return dictItemService.getDictItemList(DictConstants.ARTICLE_TYPE);
+    }
+
+    @RequestMapping("/issuestatus/list")
+    @ResponseBody
+    public Iterable<SDictItem> listIssueStatus(){
+        return dictItemService.getDictItemList(DictConstants.ISSUE_STATUS);
+    }
+
 }

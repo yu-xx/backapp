@@ -34,13 +34,15 @@ public class KwArticleService {
      * @param rows   分页参数
      * @param type  类型
      * @param title  标题
+     * @param status    发布状态
      */
-    public DataGrid<ArticlePageDto> page(Integer page, Integer rows, Integer type, String title){
+    public DataGrid<ArticlePageDto> page(Integer page, Integer rows, Integer type, String title, Integer status){
         PageRequest pr = new PageRequest(page - 1, rows);
         Page pageData = articleDao.findAll(new MySpecification<KwArticle>().and(
                 MySpecification.Cnd.eq("type", type),
                 MySpecification.Cnd.like("title", title),
-                MySpecification.Cnd.eq("validFlag",1)
+                MySpecification.Cnd.eq("validFlag",1),
+                MySpecification.Cnd.eq("status",status)
         ).desc("operTime"), pr);
         return this.transKwArticle(new DataGrid<KwArticle>(pageData));
     }

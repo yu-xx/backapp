@@ -79,7 +79,9 @@ define(function () {
           formatter: function (value, row, index) {
               return authToolBar({
                   "article-edit": '<a data-id="' + row.articleId + '" class="ctr ctr-edit">编辑</a>',
-                  "article-delete": '<a data-id="' + row.articleId + '" class="ctr ctr-delete">删除</a>'
+                  "article-delete": '<a data-id="' + row.articleId + '" class="ctr ctr-delete">删除</a>',
+                  "article-issue": '<a data-id="' + row.articleId + '" class="ctr ctr-up">发布</a>',
+                  "article-noissue": '<a data-id="' + row.articleId + '" class="ctr ctr-down">取消发布</a>'
               }).join(" | ");
           }
       }
@@ -111,6 +113,26 @@ define(function () {
           });
         }
       });
+    }).on('click', "a.ctr-up", function () {// 删除按钮事件
+        var id = this.dataset.id;
+        $.messager.confirm("发布提醒", "确认发布此内容?", function (r) {
+            if (r) {
+                $.get("/kw/article/issue", {articleId: id}, function () {
+                    // 数据操作成功后，对列表数据，进行刷新
+                    dg.datagrid("reload");
+                });
+            }
+        });
+    }).on('click', "a.ctr-down", function () {// 删除按钮事件
+        var id = this.dataset.id;
+        $.messager.confirm("取消发布提醒", "确认取消发布此内容?", function (r) {
+            if (r) {
+                $.get("/kw/article/cancel", {articleId: id}, function () {
+                    // 数据操作成功后，对列表数据，进行刷新
+                    dg.datagrid("reload");
+                });
+            }
+        });
     });
 
     /**

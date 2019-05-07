@@ -43,8 +43,8 @@ public class KwArticleController {
 
     @RequestMapping("/page")
     @ResponseBody
-    public DataGrid<ArticlePageDto> page(Integer page, Integer rows, Integer type, String title) {
-        return articleService.page(page,rows,type,title);
+    public DataGrid<ArticlePageDto> page(Integer page, Integer rows, Integer type, String title,Integer status) {
+        return articleService.page(page,rows,type,title,status);
     }
 
 
@@ -97,9 +97,33 @@ public class KwArticleController {
         return new AjaxResult();
     }
 
-    @RequestMapping("/type/list")
+    @RequestMapping("/issue")
+    @Transactional
     @ResponseBody
-    public Iterable<SDictItem> listTypes(){
-        return dictItemService.getDictItemList(DictConstants.ARTICLE_TYPE);
+    public AjaxResult issue(Long articleId){
+        try{
+            KwArticle article = articleDao.findOne(articleId);
+            article.setStatus(2);
+            article.setOperTime(new Date());
+            articleDao.save(article);
+        }catch (Exception e){
+            return new AjaxResult().setMessage(e.getMessage());
+        }
+        return new AjaxResult();
+    }
+
+    @RequestMapping("/cancel")
+    @Transactional
+    @ResponseBody
+    public AjaxResult cancel(Long articleId){
+        try{
+            KwArticle article = articleDao.findOne(articleId);
+            article.setStatus(1);
+            article.setOperTime(new Date());
+            articleDao.save(article);
+        }catch (Exception e){
+            return new AjaxResult().setMessage(e.getMessage());
+        }
+        return new AjaxResult();
     }
 }
